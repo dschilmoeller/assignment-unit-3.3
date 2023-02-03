@@ -26,6 +26,7 @@ console.log('4. Removed item:',droppedItem);
 supplyChanges.push(25)
 console.log('5. Adding 25 to supplyChanges.',supplyChanges);
 
+
 // 6. Write a `for` loop that shows each value in the 'supplyChanges' array
 //    Use a console.log formatted as follows, where x is the value from the array
 //    - if it is a positive number (greater than 0), log 'Added x parts.' 
@@ -40,6 +41,9 @@ for (i=0; i<supplyChanges.length; i++) {
         console.log('Removed ' + supplyChanges[i] + ' parts');
     }
 }
+
+//for some reason i is escaping this loop with a value. Doesn't affect when used below?
+console.log(i);
 
 // STRETCH GOALS
 console.log('---  Stretch Goals  ---');
@@ -56,10 +60,17 @@ for (change of supplyChanges) {
     }
 }
 
+console.log(i);
 // 8. Write a loop to determine the total number of parts available by
 //    adding up all the numbers in the 'supplyChanges' array.
 console.log('8. Total supplies available is:');
-
+let total = 0
+for (i=0; i<supplyChanges.length; i++) {
+    total = total+supplyChanges[i];
+    console.log("The curent total is",total);
+}
+// i is zeroed out prior. so it could have been zeroed between the instructions for 9 and the variable creation to avoid
+// using x as a variable in 9. 
 
 // 9. We have a large stash of parts in our warehouse that we 
 //    need to box up and get ready for shipment. 
@@ -67,4 +78,25 @@ console.log('8. Total supplies available is:');
 //    Use a `while` loop to keep adding parts to boxes until
 //    no more boxes can be filled.
 //    Then log how many boxes were filled, and how many parts are left over.
+// should be 81 boxes w/ 5 left over.
 console.log('9. Filling boxes with a "while" loop');
+
+let partsInBox = 0
+let boxes = 0
+console.log(i);
+let x = 0
+// had to create new counter variable as i was picking up a value from an earlier code snippet! ARGH!
+
+while (x<572) {
+    if (partsInBox < 6) {   
+        partsInBox++
+        console.log("parts in incomplete box:", partsInBox);
+    } else { 
+        boxes++;
+        partsInBox=0
+        console.log("boxes so far:",boxes)
+    }
+    x++;
+}
+console.log("boxes in total:",boxes)
+console.log("Parts left over:",partsInBox)
